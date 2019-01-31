@@ -25,9 +25,6 @@ body {
   padding-top: 1rem;
   padding-bottom: 80px;
 }
-.topo{
-  color: red;
-}
 
 body.fixed-nav #content-wrapper {
   margin-top: 56px;

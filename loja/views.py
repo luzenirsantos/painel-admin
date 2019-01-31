@@ -8,6 +8,12 @@ def index(request):
 def base(request):
     return render(request, 'loja/base.html', {}) 
 
+def base_form(request):
+    return render(request, 'loja/base_form.html', {}) 
+
+def base_list(request):
+    return render(request, 'loja/base_list.html', {}) 
+
 def erro(request):
     return render(request, 'loja/erro.html', {})
 
