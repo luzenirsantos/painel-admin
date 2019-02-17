@@ -1,0 +1,15 @@
+<!-- Estendemos do template base -->
+{% extends "loja/base.html" %}
+
+<!-- Bloco que define o <title></title> da nossa página -->
+{% block title %}Blank page{% endblock %}
+
+<!-- Bloco de conteúdo da nossa página -->
+{% block conteudo %}
+          <!-- Page Content -->
+          <h1 class="display-1">404</h1>
+          <p class="lead">Page not found. You can
+            <a href="javascript:history.back()">go back</a>
+            to the previous page, or
+            <a href="{% url 'loja:lista_clientes' %}">return home</a>.</p>
+{% endblock %} 
