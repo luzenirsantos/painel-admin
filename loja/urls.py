@@ -1,16 +1,35 @@
+from loja.views import IndexTemplateView, FuncionarioListView, ClienteListView, FuncionarioUpdateView, ClienteUpdateView,  FuncionarioCreateView, ClienteCreateView, FuncionarioDeleteView, ClienteDeleteView
+
 from django.urls import path
-from . import views
+
+app_name = 'loja'
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('', views.base, name='base'),
-    path('', views.base_form, name='base_form'),
-     path('', views.base_list, name='base_list'),
-    path('', views.blank, name='blank'),
-    path('', views.charts, name='charts'),
-    path('', views.password, name='password'),
-    path('', views.login, name='login'),
-    path('', views.register, name='register'),
-    path('', views.tables, name='tables'),
-    path('', views.erro, name='erro'),
+    # GET /
+    path('', IndexTemplateView.as_view(), name="index"),
+
+    # GET /funcionario/cadastrar
+    path('funcionario/cadastrar', FuncionarioCreateView.as_view(), name="cadastra_funcionario"),
+
+    # GET /funcionarios
+    path('funcionarios/', FuncionarioListView.as_view(), name="lista_funcionarios"),
+
+    # GET/POST /funcionario/{pk}
+    path('funcionario/<pk>', FuncionarioUpdateView.as_view(), name="atualiza_funcionario"),
+
+    # GET/POST /funcionarios/excluir/{pk}
+    path('funcionario/excluir/<pk>', FuncionarioDeleteView.as_view(), name="deleta_funcionario"),
+     
+    # GET /cliente/cadastrar
+    path('cliente/cadastrar', ClienteCreateView.as_view(), name="cadastra_cliente"),
+
+    # GET /clientes
+    path('clientes/', ClienteListView.as_view(), name="lista_clientes"),
+
+    # GET/POST /cliente/{pk}
+    path('cliente/<pk>', ClienteUpdateView.as_view(), name="atualiza_cliente"),
+
+    # GET/POST /clientes/excluir/{pk}
+    path('cliente/excluir/<pk>', ClienteDeleteView.as_view(), name="deleta_cliente"),
 ]
+

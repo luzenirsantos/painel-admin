@@ -1,38 +1,94 @@
-from django.shortcuts import render
-from django.utils import timezone
+from django.urls import reverse_lazy
+from django.views.generic import TemplateView, ListView, UpdateView, CreateView, DeleteView
+from mysite.models import Funcionario
+from loja.forms import InsereFuncionarioForm
+from mysite.models import Cliente
+from loja.forms import InsereClienteForm
 
-# Create your views here.
-def index(request):
-    return render(request, 'loja/index.html', {}) 
 
-def base(request):
-    return render(request, 'loja/base.html', {}) 
+# PÁGINA PRINCIPAL
+# ----------------------------------------------
 
-def base_form(request):
-    return render(request, 'loja/base_form.html', {}) 
+class IndexTemplateView(TemplateView):
+    template_name = "loja/index.html"
 
-def base_list(request):
-    return render(request, 'loja/base_list.html', {}) 
 
-def erro(request):
-    return render(request, 'loja/erro.html', {})
+# LISTA DE FUNCIONÁRIOS
+# ----------------------------------------------
 
-def blank(request):
-    return render(request, 'loja/blank.html', {})
+class FuncionarioListView(ListView):
+    template_name = "loja/lista_fun.html"
+    model = Funcionario
+    context_object_name = "funcionarios"
 
-def charts(request):
-    return render(request, 'loja/charts.html', {})
 
-def password(request):
-    return render(request, 'loja/password.html', {})    
+# CADASTRAMENTO DE FUNCIONÁRIOS
+# ----------------------------------------------
 
-def login(request):
-    return render(request, 'loja/login.html', {})    
+class FuncionarioCreateView(CreateView):
+    template_name = "loja/cria_fun.html"
+    model = Funcionario
+    form_class = InsereFuncionarioForm
+    success_url = reverse_lazy("loja:lista_funcionarios")
 
-def register(request):
-    return render(request, 'loja/register.html', {})   
 
-def tables(request):
-    return render(request, 'loja/tables.html', {})    
+# ATUALIZAÇÃO DE FUNCIONÁRIOS
+# ----------------------------------------------
 
-   
+class FuncionarioUpdateView(UpdateView):
+    template_name = "loja/atualiza_fun.html"
+    model = Funcionario
+    fields = '__all__'
+    context_object_name = 'funcionario'
+    success_url = reverse_lazy("loja:lista_funcionarios")
+
+
+# EXCLUSÃO DE FUNCIONÁRIOS
+# ----------------------------------------------
+
+class FuncionarioDeleteView(DeleteView):
+    template_name = "loja/exclui_fun.html"
+    model = Funcionario
+    context_object_name = 'funcionario'
+    success_url = reverse_lazy("loja:lista_funcionarios")
+
+
+# LISTA DE CLIENTES
+# ----------------------------------------------
+
+class ClienteListView(ListView):
+    template_name = "loja/lista_cli.html"
+    model = Cliente
+    context_object_name = "clientes"
+
+
+# CADASTRAMENTO DE CLIENTES
+# ----------------------------------------------
+
+class ClienteCreateView(CreateView):
+    template_name = "loja/cria_cli.html"
+    model = Cliente
+    form_class = InsereClienteForm
+    success_url = reverse_lazy("loja:lista_clientes")
+
+
+# ATUALIZAÇÃO DE CLIENTES
+# ----------------------------------------------
+
+class ClienteUpdateView(UpdateView):
+    template_name = "loja/atualiza_cli.html"
+    model = Cliente
+    fields = '__all__'
+    context_object_name = 'cliente'
+    success_url = reverse_lazy("loja:lista_clientes")
+
+
+# EXCLUSÃO DE CLIENTES
+# ----------------------------------------------
+
+class ClienteDeleteView(DeleteView):
+    template_name = "loja/exclui_cli.html"
+    model = Cliente
+    context_object_name = 'cliente'
+    success_url = reverse_lazy("loja:lista_clientes")
+

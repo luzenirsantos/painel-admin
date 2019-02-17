@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    {% load static tempo_atual %}
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <!-- Title -->
+        <title>{% block title %}Sistema de Gerenciamento de Funcionários e Clientes{% endblock %}</title>
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="{% static 'loja/img/.png' %}" type="image/png">
+
+        <!-- Arquivos CSS -->
+        <link rel="stylesheet" type="text/css" href="{% static 'loja/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'loja/css/master.css' %}">
+
+        {% block styles %}{% endblock %}
+    </head>
+
+    <body>
+    	<table bgcolor="" width="100%" cellpadding="10" cellspacing="">
+    		<tr bgcolor="#66CDAA">
+    			<td>
+    				<h3 align="center"><font face="goudy stout" color="#191970" >PAINEL ADMINISTRATIVO</font></h1>
+    			</td>
+    		</tr>
+    		<tr bgcolor="#66CDAA">
+    			<td>
+    				 <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <a class="navbar-brand" href="{% url 'loja:index' %}">
+              <img src="{% static 'loja/img/image.png' %}" height="45px">
+            </a>
+            <button class="navbar-toggler" type="button" 
+                data-toggle="collapse" data-target="#navbarSupportedContent" 
+                aria-controls="navbarSupportedContent" aria-expanded="false" 
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'loja:index' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'loja:lista_funcionarios' %}">Funcionários</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'loja:lista_clientes' %}">Clientes</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav float-right">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><b>Hora: </b>{% tempo_atual %}</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    			</td>
+    		</tr>
+    		<tr bgcolor="#708090">
+    			<td>
+    				<!-- Conteúdo do site -->
+       {% block conteudo %}{% endblock %}
+
+        <!-- Scripts .js -->
+        <script src="{% static 'loja/js/jquery.min.js' %}"></script>
+        <script src="{% static 'loja/js/bootstrap.min.js' %}"></script>
+
+        {% block scripts %}{% endblock %}
+    			</td>
+    		</tr>
+
+    	</table>
+
+        <script src="{% static 'loja/js/scripts.js' %}"></script>
+    </body>
+</html>
