@@ -47,10 +47,10 @@
                         <a class="nav-link" href="{% url 'loja:index' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'loja:lista_funcionarios' %}">Funcionários</a>
+                        <a class="nav-link" href="{% url 'loja:lista_clientes' %}">Clientes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'loja:lista_clientes' %}">Clientes</a>
+                        <a class="nav-link" href="{% url 'loja:lista_funcionarios' %}">Funcionários</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav float-right">
@@ -62,7 +62,7 @@
         </nav>
     			</td>
     		</tr>
-    		<tr bgcolor="#708090">
+    		<tr bgcolor="#DCDCDC">
     			<td>
     				<!-- Conteúdo do site -->
        {% block conteudo %}{% endblock %}

@@ -1,5 +1,5 @@
 <!-- Estendemos do template base -->
-{% extends "loja/_layouts/base.html" %}
+{% extends "loja/base.html" %}
 
 <!-- Bloco que define o <title></title> da nossa página -->
 {% block title %}Página Inicial{% endblock %}
@@ -8,39 +8,22 @@
 {% block conteudo %}
 <div class="container mt-5">
   <div class="row">
-<!--   ----------------------funcionario----------------------------   -->
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Cadastrar Funcionário</h5>
-          <p class="card-text">
-            Cadastre aqui um novo <code>Funcionário</code>.
-          </p>
-          <a href="{% url 'loja:cadastra_funcionario' %}"
-             class="btn btn-primary">
-            Novo Funcionário
-          </a>
-        </div>
-      </div>
-    </div>
+    <table width="100%" cellpadding="10" cellspacing="10">
+      <tr>
+        <td bgcolor="">
+          <font face="arial black" class="dropdown-header" color="">Outras páginas:
+            <a class="dropdown-item" href="login.html">Login</a>
+            <a class="dropdown-item" href="register.html">Registro</a>
+            <a class="dropdown-item" href="forgot-password.html">Recuperar senha</a>
+            <a class="dropdown-item" href="404.html">Erro 404</a>
+            <a class="dropdown-item" href="blank.html">Blank Page</a>
+          </font>
+        </td>
+         
 
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Lista de Funcionários</h5>
-          <p class="card-text">
-            Veja aqui a lista de <code>Funcionários</code> cadastrados.
-          </p>
-          <a href="{% url 'loja:lista_funcionarios' %}"
-             class="btn btn-primary">
-            Vá para Lista
-          </a>
-        </div>
-      </div>
-    </div>
-
-<!--   ----------------------cliente----------------------------   -->
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <td align="" bgcolor="">
+        <!--   ----------------------cadastro cliente----------------------------   -->
+    <div class="">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Cadastrar Cliente</h5>
@@ -54,8 +37,28 @@
         </div>
       </div>
     </div>
+    <!--   ----------------------cadastro funcionario----------------------------   -->
+    <div class="">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Cadastrar Funcionário</h5>
+          <p class="card-text">
+            Cadastre aqui um novo <code>Funcionário</code>.
+          </p>
+          <a href="{% url 'loja:cadastra_funcionario' %}"
+             class="btn btn-primary">
+            Novo Funcionário
+          </a>
+        </div>
+      </div>
+    </div>
+        </td>
 
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <td align="" bgcolor="">
+
+  <!--   ----------------------listar cliente----------------------------   -->
+
+<div class="">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Lista de Clientes</h5>
@@ -73,4 +76,26 @@
 
   </div>
 </div>
+  <!--   ----------------------listar funcionario----------------------------   -->
+           <div class="">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Lista de Funcionários</h5>
+          <p class="card-text">
+            Veja aqui a lista de <code>Funcionários</code> cadastrados.
+          </p>
+          <a href="{% url 'loja:lista_funcionarios' %}"
+             class="btn btn-primary">
+            Vá para Lista
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+        </td>
+      </tr>
+    </table>
+
+
 {% endblock %}
